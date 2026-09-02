@@ -1,0 +1,8 @@
+repozytorium - folder
+github/bitbucket/gitlab - są to platformy do przechowywania i udostępniania plików które pozwalają na łatwiejszą modyfikacje
+git - system do przechowywania i udostępniania plików
+commit - wysłanie nowego kodu do folderu (idk)
+branch - gałęź odchodząca od głównego folderu ("maina") która jest odizolowana od reszty
+checkout - przechodzenie pomiędzy branchami
+merge - złączenie zawartości z brancha do maina bez usuwania brancha
+rebase - złączenie zawartości z brancha do maina usuwając brancha z którego pochodzi kod
