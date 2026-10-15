@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+            $("#formularz").submit(function(e){
+                e.preventDefault()
+                if($("#pass").val() === ""){
+                    $("#info").text("Podaj nick!")
+                }else{
+                    $("#info").text("Witaj, " + $("#nick").val())
+                }
+            })
+        })
+        $(function(){
+            $("#formularz2").submit(function(e){
+                e.preventDefault()
+                if($("#pass").val().length < 6){
+                    $("#info2").text("Hasło jest za krótkie").css("color", "red")
+                }else{
+                    $("#info2").text("Zalogowano").css("color", "green")
+                }
+            })
+        })
+        $(function(){
+            $("#kolor").change(function(){
+                $("body").css("background", $(this).val())
+            })
+        })
+        $(function(){
+            $("#pizza").change(function(){
+                if($(this).val() == "small")
+                    $("#checkout").text("Do zapłaty: 20zł")
+                if($(this).val() == "medium")
+                    $("#checkout").text("Do zapłaty: 30zł")
+                if($(this).val() == "large")
+                    $("#checkout").text("Do zapłaty: 40zł")
+            })
+        })
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+    <form id="formularz">
+        <input type="text" id="nick">
+        <button type="submit">wyślij</button>
+    </form>
+    <p id="info"></p>
+    <hr>
+    <form id="formularz2">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+        
+        <label for="pass">Hasło</label>
+        <input type="text" id="pass" name="pass">
+        
+        <button type="submit">wyślij</button>
+    </form>
+    <p id="info2"></p>
+    <hr>
+    <select id="kolor">
+        <option value="white">Biały</option>
+        <option value="yellow">Żółty</option>
+        <option value="lightblue">Jasny niebieski</option>
+    </select>
+    <hr>
+    <select id="pizza">
+        <option value="small">Mała</option>
+        <option value="medium">Średnia</option>
+        <option value="large">Duża</option>    
+    </select>
+    <p id="checkout">Do zapłaty: </p>
+</body>
+</html>
