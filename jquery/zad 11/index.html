@@ -7,8 +7,50 @@
     <title>Document</title>
     <script>
     $(function(){
-        
+        $("#sprawdz").click(function(){
+            let name = $("#imie").val().trim()
+            if(name === ""){
+                $("#blad").text("Pole jest wymagane")
+            }else{
+                $("#blad").text("Twoje imie to: " + name)
+            }
+        })
     })
+    $(function(){
+            $("#formularz").submit(function(e){
+                e.preventDefault()
+                let lastname = $("#nazwisko").val().trim()
+                if(lastname === ""){
+                $("#error").text("Podaj nazwisko").css("color", "red")
+                }else{
+                $("#error").text("Wysłano formularz").css("color", "green")
+            }
+            })
+        })
+        $(function(){
+            $("#sprawdzWiek").click(function(){
+                let wiek = Number($("#wiek").val())
+                if(isNaN(wiek)){
+                    $("#bladWiek").text("Wiek musi być liczbą")
+                }else{
+                    $("#bladWiek").text("Masz " + wiek + " lat.")
+                }
+            })
+        })
+        $(function(){
+            $("#zapisz").click(function(){
+                let ocena = Number($("#ocena").val().trim())
+                if(isNaN(ocena)){
+                    $("#bladOcena").text("Podaj liczbę")
+                }else if(ocena === ""){
+                    $("#bladOcena").text("Pole nie może być pustę")
+                }else if(ocena > 6 && ocena < 1){
+                    $("#bladOcena").text("Liczba ma być  od 1 do 6")
+                }else{
+                    $("#bladOcena").text("Zapisano ocene: " + ocena)
+                }
+            })
+        })
     </script>
     <style>
     </style>
@@ -17,5 +59,19 @@
     <input type="text" id="imie">
     <button id="sprawdz">Sprawdź</button>
     <p id="blad"></p>
+    <hr>
+    <form id="formularz">
+        <input type="text" id="nazwisko">
+        <button type="submit">Wyślij</button>
+    </form>
+    <p id="error"></p>
+    <hr>
+    <input type="text" id="wiek">
+    <button id="sprawdzWiek">Sprawdź</button>
+    <p id="bladWiek"></p>
+    <hr>
+    <input type="text" id="ocena">
+    <button id="zapisz">Zapisz</button>
+    <p id="bladOcena"></p>
 </body>
 </html>
